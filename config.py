@@ -37,6 +37,6 @@ class DebugConfig(Config):
 
 
 config_dict = {
-    'Production': ProductionConfig,
+    'Production': DebugConfig,
     'Debug': DebugConfig
 }
