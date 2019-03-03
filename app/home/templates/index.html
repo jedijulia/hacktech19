@@ -7,11 +7,11 @@
 {% endblock stylesheets %}
 
 {% block content %}
-  <div class="right_col" role="main">
+  <div class="right_col_mod" role="main" style="display: flex; justify-content: center; align-items: center;">
     <!-- top tiles -->
     <!-- /top tiles -->
 
-    <div class="row">
+    <div class="row" style="width: 100%">
       <div class="col-md-12 col-sm-12 col-xs-12">
           <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action=""  method="post" enctype="multipart/form-data">
               <div class="form-group">
@@ -29,28 +29,6 @@
               </div>
            </form>
       </div>
-    </div>
-
-    <br />
-
-    <div>
-        {% for dict_item in results %}
-            <div>
-                {{ dict_item.itemId }} <br/>
-                <h1>{{ dict_item.title }}</h1>
-                <img src= "{{ dict_item.galleryURL }}"><br/>
-                Price: {{ dict_item.sellingStatus.currentPrice._currencyId }} {{ dict_item.sellingStatus.currentPrice.value }}<br/>
-                {{ dict_item.condition.conditionDisplayName }}<br/>
-                Shipping: <br/>
-                {% if dict_item.shippingInfo.expeditedShipping == 'true' %}
-                    EXPEDITED SHIPPING <br/>
-                {% endif %}
-                Item location: {{ dict_item.location }}<br/>
-                Ships to: {{ dict_item.shippingInfo.shipToLocations }}
-           </div>
-           <br />
-        {% endfor %}
-
     </div>
 
 {% endblock content %}
