@@ -33,19 +33,25 @@
 
     <br />
 
-    <div class="row">
+    <div>
+        {% for dict_item in results %}
+            <div>
+                {{ dict_item.itemId }} <br/>
+                <h1>{{ dict_item.title }}</h1>
+                <img src= "{{ dict_item.galleryURL }}"><br/>
+                Price: {{ dict_item.sellingStatus.currentPrice._currencyId }} {{ dict_item.sellingStatus.currentPrice.value }}<br/>
+                {{ dict_item.condition.conditionDisplayName }}<br/>
+                Shipping: <br/>
+                {% if dict_item.shippingInfo.expeditedShipping == 'true' %}
+                    EXPEDITED SHIPPING <br/>
+                {% endif %}
+                Item location: {{ dict_item.location }}<br/>
+                Ships to: {{ dict_item.shippingInfo.shipToLocations }}
+           </div>
+           <br />
+        {% endfor %}
 
-        <div id="image">
-            <center><b>{{success_message}}</b></center>
-        </div>
-
-
-
-
-
-
-        </div>
-      </div>
+    </div>
 
 {% endblock content %}
 

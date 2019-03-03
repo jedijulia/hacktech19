@@ -1,3 +1,5 @@
+import json
+
 from app.home import blueprint
 from flask import render_template,request
 from flask_login import login_required
@@ -13,8 +15,10 @@ def index():
          ebay_obj = ebayclass.mainBay()
          #(opts, args) = ebay_obj.init_options()
          resp = ebay_obj.run(search)
-         return render_template('index.html',success_message=str(resp.json()))  
-     
+         results = json.loads(resp.json())
+         search_results = results['searchResult']['item']
+         return render_template('index.html',results=search_results)
+
     return render_template('index.html')
 
 
