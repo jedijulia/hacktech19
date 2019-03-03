@@ -14,25 +14,19 @@
               <div class="list-img-container">
                 <img src="{{ dict_item.galleryURL }}" class="list-img" />
               </div>
-              <div class="list-title">{{ dict_item.title }}</div>
-              <div class="list-itemid">{{ dict_item.itemId }}</div>
-              <div class="list-price"> Price: {{ dict_item.sellingStatus.currentPrice.value }} {{ dict_item.sellingStatus.currentPrice._currencyId }}
+              <div class="list-flex">
+                <div class="list-field-container">
+                  <div class="list-title">{{ dict_item.title }}</div>
+                  <div class="list-stats">
+                    <div class="list-price"> Price:
+                      {{ dict_item.sellingStatus.currentPrice.value }}
+                      {{ dict_item.sellingStatus.currentPrice._currencyId }}
+                    </div>
+                    <div class="list-material">{{ dict_item.mat }}</div>
+                  </div>
               </div>
-              <div class="list-cond">
-                {{ dict_item.condition.conditionDisplayName }}
-              </div>
-              <div class="list-exp">
-                Shipping:
-                {% if dict_item.shippingInfo.expeditedShipping == 'true' %}
-                  EXPEDITED SHIPPING
-                {% endif %}
-              </div>
-              <div class="list-loc">
-                Item location: {{ dict_item.location }}
-              </div>
-              <div class="list-ship">
-                Ships to: {{ dict_item.shippingInfo.shipToLocations }}
-              </div>
+              <div class="list-eco" style="background: linear-gradient(90deg, lightgreen, lime, white {{ eco * 100 }}%);"></div>
+            </div>
            </div>
         {% endfor %}
       </div>
