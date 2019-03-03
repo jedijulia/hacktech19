@@ -27,12 +27,12 @@ class Ranker():
             temp['emission'] = item['emission']
             temp['price'] = item['price']
             temp['gallleryURL'] = item['gallleryURL']
-            temp['eco'] = predicted[0][0]
+            temp['eco'] = 1 - predicted[0][0]
             
             ranking.append(temp)
             
         newlist = sorted(ranking, key=itemgetter('eco'), reverse=True)
         
-        return ranking
+        return newlist
             
             

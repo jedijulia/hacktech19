@@ -93,39 +93,40 @@ class mainBay():
             
             #print(material)
             #Get emission for this material
-            #if 'Nylon' in material or 'Resin' in material or 'Paper' in material or 'Jute' in material or 'Plastic' in material or 'Glass' in material or 'Aluminum' in material or 'Steel' in material:  
+            if 'Nylon' in material or 'Resin' in material or 'Paper' in material or 'Jute' in material or 'Plastic' in material or 'Glass' in material or 'Aluminum' in material or 'Steel' in material:  
                 #appended_list.append(temp)
                 #Find emission
                 #reference_set = pd.read_csv('emission.csv')
                 #Sake of avoiding writing code to search through 4 columns hard coding values
-            temp = {}
-            temp['gallleryURL'] = item['galleryURL']
-            temp['itemId'] = item['itemId']
-            temp['title'] = item['title']
-            temp['price'] = item['sellingStatus']['currentPrice']['value']
-            temp['material'] = material
+                temp = {}
+                temp['gallleryURL'] = item['galleryURL']
+                temp['itemId'] = item['itemId']
+                temp['title'] = item['title']
+                temp['price'] = item['sellingStatus']['currentPrice']['value']
+                temp['material'] = material
+                
+                if 'Nylon' in material:
+                    temp['emission'] = 7.9
+                elif 'Resin' in material:
+                    temp['emission'] = 3.67
+                elif 'Paper' in material:
+                    temp['emission'] = 2.42
+                elif 'Jute' in material:
+                    temp['emission'] = 0.76
+                elif 'Plastic' in material:
+                    temp['emission'] = 3.56
+                elif 'Glass' in material:
+                    temp['emission'] = 4.4
+                elif 'Aluminum' in material:
+                    temp['emission'] = 11.89
+                elif 'Steel' in material:
+                    temp['emission'] = 3.64
+                else:
+                    temp['emission'] = 0
             
-            if 'Nylon' in material:
-                temp['emission'] = 7.9
-            elif 'Resin' in material:
-                temp['emission'] = 3.67
-            elif 'Paper' in material:
-                temp['emission'] = 2.42
-            elif 'Jute' in material:
-                temp['emission'] = 0.76
-            elif 'Plastic' in material:
-                temp['emission'] = 3.56
-            elif 'Glass' in material:
-                temp['emission'] = 4.4
-            elif 'Aluminum' in material:
-                temp['emission'] = 11.89
-            elif 'Steel' in material:
-                temp['emission'] = 3.64
-            else:
-                temp['emission'] = 0
             
-            
-            appended_list.append(temp)
+                appended_list.append(temp)
+                
         appended_list = list({v['itemId']:v for v in appended_list}.values())        
         return list(appended_list)
     
