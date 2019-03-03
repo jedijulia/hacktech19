@@ -7,6 +7,8 @@ from flask_login import login_required
 from app.home import ebayclass
 
 
+
+
 @blueprint.route('/index',methods=['GET', 'POST'])
 @login_required
 def index():
