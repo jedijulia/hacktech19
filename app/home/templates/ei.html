@@ -34,27 +34,27 @@
             <div class="x_content">
               <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="product-image">
-                  <img src="{{ pg_image[0] }}" />
+                  <img src="{{ pg_image }}" />
                 </div>
-                <div class="product_gallery">
+                {# <div class="product_gallery">
                   {% for image in pg_image %}
                     <a> <img src="{{ image }}" /> </a>
                   {% endfor %}
-                </div>
+                </div> #}
               </div>
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
 
                 <h3 class="prod_title">{{ pg_title }}</h3>
 
-                <p>{{ pg_subtitle }}</p>
                 <br />
               </div>
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
                 <h3 classs="prod_title"> CO2 Emmission </h3>
+                <p>Material: {{ pg_material }}</p>
 
-                <p></p>
+                <p>{{ pg_emission }} * 23.78 = {{ pg_emission_m }}</p>
               </div>
             </div>
           </div>
@@ -68,21 +68,24 @@
             <div class="x_content">
               <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="product-image">
-                  <img src="{{ pp_image[0] }}" />
+                  <img src="{{ pp_image }}" />
                 </div>
-                <div class="product_gallery">
+                {# <div class="product_gallery">
                   {% for image in pp_image %}
                     <a> <img src="{{ image }}" /> </a>
                   {% endfor %}
-                </div>
+                </div> #}
               </div>
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
 
                 <h3 class="prod_title">{{ pp_title }}</h3>
-
-                <p>{{ pp_subtitle }}</p>
                 <br />
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+                <h3 classs="prod_title"> CO2 Emmission </h3>
+                <p>Material: {{ pp_material }}</p>
+                <p>{{ pp_emission }} * 23.78 = {{ pp_emission_m }}</p>
               </div>
             </div>
           </div>

@@ -19,21 +19,17 @@ $('.list-item').on('click', e => {
     let emission = e.currentTarget.children[1].children[0].children[1].innerHTML;
     let price = e.currentTarget.children[1].children[0].children[2].children[0].innerHTML;
     let material = e.currentTarget.children[1].children[0].children[2].children[1].innerHTML;
+    data = {title:title, price:price, material:material, emission:emission, image:image}
+    console.log(data);
     $.post({
       url: '/home/sr',
-      data: {
-        title: title,
-        subtitle: subtitle,
-        price: price,
-        emission: emission,
-        material: material
-      },
+      data: data,
       success: function(data, status) {
         window.location.href = String(data.redirect);
       }
     });
   }
-})
+});
 
 
 /**
