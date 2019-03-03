@@ -27,7 +27,7 @@ def index():
          appended_results = ebay_obj.getAppendedResults(search_results)
          ranker_obj = ranker.Ranker()
          ranked_list = ranker_obj.rankThem(appended_results)
-         return render_template('sr.html',results=ranked_list)
+         return render_template('sr.html',results=ranked_list,original_list=search_results)
     else:
       return render_template('index.html')
 
