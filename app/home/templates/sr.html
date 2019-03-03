@@ -1,0 +1,61 @@
+{% extends "base_site.html" %}
+
+{% block title %} Dashboard 2 {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col_mod" role="main">
+    <div class="list-wrapper">
+        {% for dict_item in results %}
+            <div class="list-item">
+              <div class="list-img-container">
+                <img src="{{ dict_item.galleryURL }}" class="list-img" />
+              </div>
+              <div class="list-flex">
+                <div class="list-field-container">
+                  <div class="list-title">{{ dict_item.title }}</div>
+                  <div class="list-stats">
+                    <div class="list-price"> Price:
+                      {{ dict_item.sellingStatus.currentPrice.value }}
+                      {{ dict_item.sellingStatus.currentPrice._currencyId }}
+                    </div>
+                    <div class="list-material">{{ dict_item.mat }}</div>
+                  </div>
+              </div>
+              <div class="list-eco" style="background: linear-gradient(90deg, lightgreen, lime, white {{ eco * 100 }}%);"></div>
+            </div>
+           </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super()}}
+  <!-- Chart.js -->
+  <script src="{{ url_for('static', filename='vendors/Chart.js/dist/Chart.min.js') }}"></script>
+  <!-- gauge.js -->
+  <script src="{{ url_for('static', filename='vendors/gauge.js/dist/gauge.min.js') }}"></script>
+  <!-- Skycons -->
+  <script src="{{ url_for('static', filename='vendors/skycons/skycons.js') }}"></script>
+  <!-- Flot -->
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.pie.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.time.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.stack.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.resize.js') }}"></script>
+  <!-- Flot plugins -->
+  <script src="{{ url_for('static', filename='vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/flot.curvedlines/curvedLines.js') }}"></script>
+  <!-- DateJS -->
+  <script src="{{ url_for('static', filename='vendors/DateJS/build/date.js') }}"></script>
+  <!-- JQVMap -->
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+{% endblock javascripts %}

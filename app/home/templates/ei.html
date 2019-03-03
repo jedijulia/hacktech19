@@ -1,0 +1,121 @@
+{% extends "base_site.html" %}
+
+{% block title %} Dashboard 3 {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+{% endblock stylesheets %}
+
+{% block content %}
+  <div class="right_col_mod" role="main">
+  <div class="">
+    <div class="row top_tiles" style="margin: 10px 0;">
+
+      <div class="page-title" style="display: flex; justify-content: center; margin: 0 0 1rem 0">
+        <div class="title_left" style="display: flex; justify-content: space-between; align-items: center; width: 100%">
+          <ul class="nav navbar-left panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-left"></i></a>
+            </li>
+          </ul>
+          <h1>Environmental Impact</h1>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Environmentally Friendly</h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="product-image">
+                  <img src="{{ product_good_images[0] }}" />
+                </div>
+                <div class="product_gallery">
+                  {% for image in product_good_images %}
+                    <a> <img src="{{ image }}" /> </a>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+
+                <h3 class="prod_title">{{ product_good_title }}</h3>
+
+                <p>{{ product_good_description }}</p>
+                <br />
+              </div>
+
+              <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+                <h3 classs="prod_title"> CO2 Emmission </h3>
+
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Environmentally Harmful</h2>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="product-image">
+                  <img src="{{ product_bad_images[0] }}" />
+                </div>
+                <div class="product_gallery">
+                  {% for image in product_bad_images %}
+                    <a> <img src="{{ image }}" /> </a>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+
+                <h3 class="prod_title">{{ product_bad_title }}</h3>
+
+                <p>{{ product_bad_description }}</p>
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super()}}
+  <script src="{{ url_for('static', filename='build/js/custom.js') }}"></script>
+  <!-- Chart.js -->
+  <script src="{{ url_for('static', filename='vendors/Chart.js/dist/Chart.min.js') }}"></script>
+  <!-- gauge.js -->
+  <script src="{{ url_for('static', filename='vendors/gauge.js/dist/gauge.min.js') }}"></script>
+  <!-- Skycons -->
+  <script src="{{ url_for('static', filename='vendors/skycons/skycons.js') }}"></script>
+  <!-- Flot -->
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.pie.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.time.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.stack.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/Flot/jquery.flot.resize.js') }}"></script>
+  <!-- Flot plugins -->
+  <script src="{{ url_for('static', filename='vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/flot.curvedlines/curvedLines.js') }}"></script>
+  <!-- DateJS -->
+  <script src="{{ url_for('static', filename='vendors/DateJS/build/date.js') }}"></script>
+  <!-- JQVMap -->
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+{% endblock javascripts %}
+
