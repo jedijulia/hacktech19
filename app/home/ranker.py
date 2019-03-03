@@ -27,7 +27,7 @@ class Ranker():
             temp['emission'] = item['emission']
             temp['price'] = item['price']
             temp['gallleryURL'] = item['gallleryURL']
-            temp['eco'] = predicted
+            temp['eco'] = predicted[0][0]
             
             ranking.append(temp)
             
