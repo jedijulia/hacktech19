@@ -55,11 +55,11 @@
               </div>
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
-                <h3 classs="prod_title"> CO2 Emission </h3>
-                <p>Material: {{ pg_material }}</p>
-
-                <p>{{ pg_emission }} * 23.78 = {{ pg_emission_m }}</p>
-                <a href="{{pp_bay}}" class="btn btn-success">BUY NOW</a>
+                  <h3 classs="prod_title" style="color:darkgreen"> CO2 Emission </h3>
+                  <p style="font-size:18px;font-weight:bold">Material: {{ pg_material }}</p>
+                  <p style="font-size:18px;font-style:italic">Cost of Carbon : 23.78 USD per tonne</p>
+                  <p style="font-size:15px">Emission Calculation : {{ pg_emission }} * 23.78 = {{ pg_emission_m }}</p>
+                  <a href="{{pp_bay}}" class="btn btn-success">BUY NOW</a>
               </div>
             </div>
           </div>
@@ -93,9 +93,10 @@
                 <br />
               </div>
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
-                <h3 classs="prod_title"> CO2 Emission </h3>
-                <p>Material: {{ pp_material }}</p>
-                <p>{{ pp_emission }} * 23.78 = {{ pp_emission_m }}</p>
+                  <h3 classs="prod_title" style="color:darkgreen"> CO2 Emission </h3>
+                  <p style="font-size:18px;font-weight:bold">Material: {{ pp_material }}</p>
+                  <p style="font-size:18px;font-style:italic">Cost of Carbon : 23.78 USD per tonne</p>
+                  <p style="font-size:15px">Emission Calculation : {{ pp_emission }} * 23.78 = {{ pp_emission_m }}</p>
               </div>
             </div>
           </div>
