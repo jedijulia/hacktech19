@@ -10,18 +10,29 @@ $('.product_gallery img').on('click', e => {
 });
 
 $('.list-item').on('click', e => {
-  $.post({
-    url: '/home/sr',
-    data: {
-      hello: "world"
-    },
-    success: function(data, status) {
-      console.log('success')
-      console.log(data);
-      console.log(data.redirect);
-      window.location.href = String(data.redirect);
-    }
-  });
+  if(!e.currentTarget.className.includes('list-item')) {
+
+  } else {
+    e.stopPropagation();
+    let image = e.currentTarget.children[0].children[0].src;
+    let title = e.currentTarget.children[1].children[0].children[0].innerHTML;
+    let emission = e.currentTarget.children[1].children[0].children[1].innerHTML;
+    let price = e.currentTarget.children[1].children[0].children[2].children[0].innerHTML;
+    let material = e.currentTarget.children[1].children[0].children[2].children[1].innerHTML;
+    $.post({
+      url: '/home/sr',
+      data: {
+        title: title,
+        subtitle: subtitle,
+        price: price,
+        emission: emission,
+        material: material
+      },
+      success: function(data, status) {
+        window.location.href = String(data.redirect);
+      }
+    });
+  }
 })
 
 

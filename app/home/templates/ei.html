@@ -34,10 +34,10 @@
             <div class="x_content">
               <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="product-image">
-                  <img src="{{ product_good_images[0] }}" />
+                  <img src="{{ pg_image[0] }}" />
                 </div>
                 <div class="product_gallery">
-                  {% for image in product_good_images %}
+                  {% for image in pg_image %}
                     <a> <img src="{{ image }}" /> </a>
                   {% endfor %}
                 </div>
@@ -45,9 +45,9 @@
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
 
-                <h3 class="prod_title">{{ product_good_title }}</h3>
+                <h3 class="prod_title">{{ pg_title }}</h3>
 
-                <p>{{ product_good_description }}</p>
+                <p>{{ pg_subtitle }}</p>
                 <br />
               </div>
 
@@ -68,10 +68,10 @@
             <div class="x_content">
               <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="product-image">
-                  <img src="{{ product_bad_images[0] }}" />
+                  <img src="{{ pp_image[0] }}" />
                 </div>
                 <div class="product_gallery">
-                  {% for image in product_bad_images %}
+                  {% for image in pp_image %}
                     <a> <img src="{{ image }}" /> </a>
                   {% endfor %}
                 </div>
@@ -79,9 +79,9 @@
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
 
-                <h3 class="prod_title">{{ product_bad_title }}</h3>
+                <h3 class="prod_title">{{ pp_title }}</h3>
 
-                <p>{{ product_bad_description }}</p>
+                <p>{{ pp_subtitle }}</p>
                 <br />
               </div>
             </div>
