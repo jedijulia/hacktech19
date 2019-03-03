@@ -12,20 +12,19 @@
         {% for dict_item in results %}
             <div class="list-item">
               <div class="list-img-container">
-                <img src="{{ dict_item.galleryURL }}" class="list-img" />
+                <img src="{{ dict_item.gallleryURL }}" class="list-img" />
               </div>
               <div class="list-flex">
                 <div class="list-field-container">
                   <div class="list-title">{{ dict_item.title }}</div>
+                  <div class="list-desc invis">{{ dict_item. }}</div>
+                  <div class="list-emis invis">{{  }}</div>
                   <div class="list-stats">
-                    <div class="list-price"> Price:
-                      {{ dict_item.sellingStatus.currentPrice.value }}
-                      {{ dict_item.sellingStatus.currentPrice._currencyId }}
-                    </div>
-                    <div class="list-material">{{ dict_item.mat }}</div>
+                    <div class="list-price"> Price: {{ dict_item.price }}</div>
+                    <div class="list-material">{{ dict_item.material }}</div>
                   </div>
               </div>
-              <div class="list-eco" style="background: linear-gradient(90deg, lightgreen, lime, white {{ eco * 100 }}%);"></div>
+              <div class="list-eco" style="background: linear-gradient(90deg, lightgreen, lime, white {{ dict_item.emission*100 }}%);"></div>
             </div>
            </div>
         {% endfor %}

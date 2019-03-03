@@ -7,30 +7,32 @@
 {% endblock stylesheets %}
 
 {% block content %}
-  <div class="right_col_mod" role="main" style="display: flex; justify-content: center; align-items: center;">
+  <div style="display: flex; justify-content: center; align-items: center; position: absolute; width: 100vw; height: 100vh; z-index: -1; overflow: hidden">
+    <img src="/static/images/splash.jpeg" style="transform: scale(0.58)">
+  </div>
+  <div class="right_col_mod" role="main" style="display: flex; justify-content: center; align-items: center; z-index: 2; background: rgba(0,0,0,0.5)">
     <!-- top tiles -->
     <!-- /top tiles -->
-
-    <div class="row" style="width: 100%">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action=""  method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                      Search Item <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="text" id="search" name= "search" required="required" class="form-control col-md-7 col-xs-12">
-                  </div>
-              </div>
-              <div class="form-group">
-                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                      <button type="submit" class="btn btn-success">Submit</button>
-                  </div>
-              </div>
-           </form>
-      </div>
-    </div>
-
+  <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <div style="height: 20rem; font-size: 12rem; margin: 0 0 0rem 0; display: flex; justify-content: center;align-items: center; color: white">eCO<sub>2</sub>Seek</div>
+    <div style="height: 6rem; font-size: 3rem; margin: 0 0 3rem 0; display: flex; justify-content: center;align-items: center; color: white; font-style: italic">Why would you buy a bag when you can get a sack and be environmentally conscious?</div>
+    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action=""  method="post" enctype="multipart/form-data" style="width: 100%">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                Search Item <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="search" name= "search" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+        </div>
+        <div class="form-group" style="display: flex; justify-content: center">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+     </form>
+    <div style="height: 23rem; font-size: 3rem; margin: 0 0 3rem 0; display: flex; justify-content: center;align-items: center; color: white;"></div>
+   </div>
 {% endblock content %}
 
 {% block javascripts %}
