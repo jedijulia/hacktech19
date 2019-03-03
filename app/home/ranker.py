@@ -9,5 +9,6 @@ Created on Sat Mar  2 19:47:37 2019
 from sklearn.externals import joblib
 
 class Ranker():
-    def rankthem(self):
+    def rankThem(self):
+        return 
         

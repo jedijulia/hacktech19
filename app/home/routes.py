@@ -7,6 +7,8 @@ from flask_login import login_required
 from app.home import ebayclass
 
 
+
+
 @blueprint.route('/index',methods=['GET', 'POST'])
 @login_required
 def index():
@@ -17,7 +19,9 @@ def index():
          resp = ebay_obj.run(search)
          results = json.loads(resp.json())
          search_results = results['searchResult']['item']
-         return render_template('sr.html',results=search_results)
+         #Pass the above list of items for further enquiry - get material
+         appended_results = ebay_obj.getAppendedResults(search_results)
+         return render_template('sr.html',results=appended_results)
     else:
       return render_template('index.html')
 

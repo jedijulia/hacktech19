@@ -8,6 +8,8 @@ Created on Sat Mar  2 10:57:50 2019
 import os
 import sys
 from optparse import OptionParser
+import json
+import pandas as pd
 
 #sys.path.insert(0, '%s/../' % os.path.dirname(__file__))
 
@@ -15,7 +17,7 @@ from optparse import OptionParser
 #from common import dump
 
 #import ebaysdk
-from ebaysdk.finding import Connection as finding
+
 from ebaysdk.exception import ConnectionError
 
 class mainBay():
@@ -42,7 +44,7 @@ class mainBay():
         return(opts, args)
 
     def run(self,search):
-
+        from ebaysdk.finding import Connection as finding
         #return(search)    
         try:
             api = finding(debug=False, appid=None, domain='svcs.ebay.com',
@@ -53,6 +55,7 @@ class mainBay():
                 'keywords': str(search),
                 'affiliate': {'trackingId': 1},
                 'sortOrder': 'CountryDescending',
+                'outputSelector':'AspectHistogram'
             }
     
             response = api.execute('findItemsAdvanced', api_request)
@@ -61,4 +64,63 @@ class mainBay():
         except ConnectionError as e:
             print(e)
             print(e.response.dict())
+            
+    def get_singeItem(self,itemID):
+        from ebaysdk.shopping import Connection as Shopping
+        api = Shopping(debug=True, appid=None,
+                          config_file='ebay.yaml', warnings=True)
+        
+        response = api.execute('GetSingleItem',{'ItemID':itemID, 'IncludeSelector':'ItemSpecifics,Details'})
+    
+        return response
+    
+    def getAppendedResults(self,search_results):
+        appended_list = []
+        for item in search_results:
+            temp = {}
+            temp['gallleryURL'] = item['galleryURL']
+            temp['itemId'] = item['itemId']
+            temp['title'] = item['title']
+            temp['price'] = item['sellingStatus']['currentPrice']['value']
+            #Material
+            resp = self.get_singeItem(temp['itemId'])
+            #return(resp)
+            resp = resp.json()
+            resp = json.loads(resp)
+            Item = resp['Item']
+            specifics = Item['ItemSpecifics']        
+            listval = specifics['NameValueList']
+            for item in listval:
+                name = item['Name']
+                if name == 'Material':
+                    material = item['Value']
+                    
+            temp['material'] = material
+            #print(material)
+            #Get emission for this material
+            if 'Nylon' in material or 'Resin' in material or 'Paper' in material or 'Jute' in material or 'Plastic' in material or 'Glass' in material or 'Aluminum' in material or 'Steel' in material:  
+                #appended_list.append(temp)
+                #Find emission
+                #reference_set = pd.read_csv('emission.csv')
+                #Sake of avoiding writing code to search through 4 columns hard coding values
+                if 'Nylon' in material:
+                    temp['emission'] = 7.9
+                elif 'Resin' in material:
+                    temp['emission'] = 3.67
+                elif 'Paper' in material:
+                    temp['emission'] = 2.42
+                elif 'Jute' in material:
+                    temp['emission'] = 0.76
+                elif 'Plastic' in material:
+                    temp['emission'] = 3.56
+                elif 'Glass' in material:
+                    temp['emission'] = 4.4
+                elif 'Aluminum' in material:
+                    temp['emission'] = 11.89
+                elif 'Steel' in material:
+                    temp['emission'] = 3.64
+                    
+                appended_list.append(temp)
+                
+        return appended_list
     
