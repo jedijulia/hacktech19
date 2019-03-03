@@ -6,7 +6,7 @@ from flask_login import login_required
 
 from app.home import ebayclass
 
-
+from app.home import ranker
 
 
 @blueprint.route('/index',methods=['GET', 'POST'])
@@ -20,7 +20,9 @@ def index():
          results = json.loads(resp.json())
          search_results = results['searchResult']['item']
          appended_results = ebay_obj.getAppendedResults(search_results)
-         return render_template('sr.html',results=appended_results)
+         ranker_obj = ranker.Ranker()
+         ranked_list = ranker_obj.rankThem(ranker_obj)
+         return render_template('sr.html',results=ranked_list)
     else:
       return render_template('index.html')
 
