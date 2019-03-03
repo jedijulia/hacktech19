@@ -16,49 +16,72 @@ unsorted_results = "init"
 @blueprint.route('/index',methods=['GET', 'POST'])
 @login_required
 def index():
-    global unsorted_results
-    if request.method == 'POST':
-         search = request.form['search']
-         ebay_obj = ebayclass.mainBay()
-         #(opts, args) = ebay_obj.init_options()
-         resp = ebay_obj.run(search)
-         results = json.loads(resp.json())
-         search_results = results['searchResult']['item']
-         appended_results = ebay_obj.getAppendedResults(search_results)
-         ranker_obj = ranker.Ranker()
-         ranked_list = ranker_obj.rankThem(appended_results)
-         return render_template('sr.html',results=ranked_list,original_list=search_results)
-    else:
-      return render_template('index.html')
+  global unsorted_results
+  if request.method == 'POST':
+    search = request.form['search']
+    ebay_obj = ebayclass.mainBay()
+    #(opts, args) = ebay_obj.init_options()
+    resp = ebay_obj.run(search)
+    results = json.loads(resp.json())
+    search_results = results['searchResult']['item']
+    appended_results = ebay_obj.getAppendedResults(search_results)
+    unsorted_results = appended_results[0]
+    ranker_obj = ranker.Ranker()
+    ranked_list = ranker_obj.rankThem(appended_results)
+    return render_template('sr.html',results=ranked_list)
+  else:
+    return render_template('index.html')
 
 title = "OOPS";
-subtitle = "OOPS";
 price = "OOPS";
 material = "OOPS";
 emission = "OOPS";
+image = "OOPS";
+bay = "OOPS"
 
 @blueprint.route('/sr',methods=['GET','POST'])
 @login_required
 def sr():
   global title
-  global subtitle
   global price
   global material
   global emission
+  global image
+  global bay
 
   if request.method == 'POST':
     title = request.form['title']
-    subtitle = request.form['subtitle']
     price = request.form['price']
     material = request.form['material']
     emission = request.form['emission']
-    return jsonify(redirect="/home/ei");
+    image = request.form['image']
+    bay = request.form['bay']
+    return jsonify(redirect="/home/ei")
 
 @blueprint.route('/ei',methods=['GET','POST'])
 @login_required
 def ei():
+  global title
+  global price
+  global material
+  global emission
+  global image
+  global unsorted_results
+  global bay
+  pg_emission_mult = float(emission) * float(23.78)
+  pp_emission_mult = float(unsorted_results['emission']) * float(23.78)
   if request.method == 'GET':
-    return render_template('ei.html',product_good_title=title,
-                           product_bad_title=unsorted_results[0].title,
-                           product_good_images=["/static/images/good-1.jpg","/static/images/good-2.jpg","/static/images/good-3.jpg","/static/images/good-4.jpg","/static/images/good-5.jpg"],
-                           product_bad_images=["/static/images/bad-1.jpg","/static/images/bad-2.jpg","/static/images/bad-3.jpg"])
+    return render_template('ei.html',
+                           pg_title=title,
+                           pg_price=price,
+                           pg_material=material,
+                           pg_emission=emission,
+                           pg_emission_m=pg_emission_mult,
+                           pg_image=image,
+                           pp_title=unsorted_results['title'],
+                           pp_image=unsorted_results['gallleryURL'],
+                           pp_material=unsorted_results['material'],
+                           pp_emission=unsorted_results['emission'],
+                           pp_emission_m=pp_emission_mult,
+                           pp_price=unsorted_results['price'],
+                           pp_bay=bay)

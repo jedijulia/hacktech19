@@ -20,19 +20,26 @@ class Ranker():
             docs_new = [title+material]
             new_counts = count_vect.transform(docs_new)
             predicted = classifier.predict_proba(new_counts)
-            
+
             temp = {}
             temp['title'] = title
             temp['material'] = material
+            temp['bay'] = item['bay']
             temp['emission'] = item['emission']
             temp['price'] = item['price']
             temp['gallleryURL'] = item['gallleryURL']
             temp['eco'] = 1 - predicted[0][0]
+
             
+
+
+
             ranking.append(temp)
-            
+
         newlist = sorted(ranking, key=itemgetter('eco'), reverse=True)
-        
+
+
         return newlist
-            
-            
+
+
+
