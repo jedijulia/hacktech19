@@ -11,6 +11,9 @@ html , body{
     background: '/static/images/splash.jpg';
 }
 
+.invis {
+    display: none;
+}
 .sr-header {
     height: 30rem;
     background: #2A3F54;
