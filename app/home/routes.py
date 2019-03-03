@@ -19,7 +19,8 @@ def index():
          resp = ebay_obj.run(search)
          results = json.loads(resp.json())
          search_results = results['searchResult']['item']
-         return render_template('sr.html',results=search_results,eco=0.3)
+         appended_results = ebay_obj.getAppendedResults(search_results)
+         return render_template('sr.html',results=appended_results)
     else:
       return render_template('index.html')
 
