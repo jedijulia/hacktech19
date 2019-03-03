@@ -53,9 +53,7 @@ class mainBay():
             api_request = {
                 #'keywords': u'niño',
                 'keywords': str(search),
-                'affiliate': {'trackingId': 1},
-                'sortOrder': 'CountryDescending',
-                'outputSelector':'AspectHistogram'
+                'affiliate': {'trackingId': 1}
             }
     
             response = api.execute('findItemsAdvanced', api_request)
@@ -77,50 +75,57 @@ class mainBay():
     def getAppendedResults(self,search_results):
         appended_list = []
         for item in search_results:
-            temp = {}
-            temp['gallleryURL'] = item['galleryURL']
-            temp['itemId'] = item['itemId']
-            temp['title'] = item['title']
-            temp['price'] = item['sellingStatus']['currentPrice']['value']
+            
             #Material
-            resp = self.get_singeItem(temp['itemId'])
+            resp = self.get_singeItem(item['itemId'])
             #return(resp)
             resp = resp.json()
             resp = json.loads(resp)
             Item = resp['Item']
             specifics = Item['ItemSpecifics']        
             listval = specifics['NameValueList']
-            for item in listval:
-                name = item['Name']
+            for new_item in listval:
+                name = new_item['Name']
                 if name == 'Material':
-                    material = item['Value']
+                    material = str(new_item['Value'])
+                    break
                     
-            temp['material'] = material
+            
             #print(material)
             #Get emission for this material
-            if 'Nylon' in material or 'Resin' in material or 'Paper' in material or 'Jute' in material or 'Plastic' in material or 'Glass' in material or 'Aluminum' in material or 'Steel' in material:  
+            #if 'Nylon' in material or 'Resin' in material or 'Paper' in material or 'Jute' in material or 'Plastic' in material or 'Glass' in material or 'Aluminum' in material or 'Steel' in material:  
                 #appended_list.append(temp)
                 #Find emission
                 #reference_set = pd.read_csv('emission.csv')
                 #Sake of avoiding writing code to search through 4 columns hard coding values
-                if 'Nylon' in material:
-                    temp['emission'] = 7.9
-                elif 'Resin' in material:
-                    temp['emission'] = 3.67
-                elif 'Paper' in material:
-                    temp['emission'] = 2.42
-                elif 'Jute' in material:
-                    temp['emission'] = 0.76
-                elif 'Plastic' in material:
-                    temp['emission'] = 3.56
-                elif 'Glass' in material:
-                    temp['emission'] = 4.4
-                elif 'Aluminum' in material:
-                    temp['emission'] = 11.89
-                elif 'Steel' in material:
-                    temp['emission'] = 3.64
-                    
-                appended_list.append(temp)
-                
-        return appended_list
+            temp = {}
+            temp['gallleryURL'] = item['galleryURL']
+            temp['itemId'] = item['itemId']
+            temp['title'] = item['title']
+            temp['price'] = item['sellingStatus']['currentPrice']['value']
+            temp['material'] = material
+            
+            if 'Nylon' in material:
+                temp['emission'] = 7.9
+            elif 'Resin' in material:
+                temp['emission'] = 3.67
+            elif 'Paper' in material:
+                temp['emission'] = 2.42
+            elif 'Jute' in material:
+                temp['emission'] = 0.76
+            elif 'Plastic' in material:
+                temp['emission'] = 3.56
+            elif 'Glass' in material:
+                temp['emission'] = 4.4
+            elif 'Aluminum' in material:
+                temp['emission'] = 11.89
+            elif 'Steel' in material:
+                temp['emission'] = 3.64
+            else:
+                temp['emission'] = 0
+            
+            
+            appended_list.append(temp)
+        appended_list = list({v['itemId']:v for v in appended_list}.values())        
+        return list(appended_list)
     
