@@ -22,9 +22,13 @@
         </div>
       </div>
 
+
+
       <div class="clearfix"></div>
 
       <div class="row">
+
+
         <div class="col-md-6 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
@@ -51,7 +55,7 @@
               </div>
 
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
-                <h3 classs="prod_title"> CO2 Emmission </h3>
+                <h3 classs="prod_title"> CO2 Emission </h3>
                 <p>Material: {{ pg_material }}</p>
 
                 <p>{{ pg_emission }} * 23.78 = {{ pg_emission_m }}</p>
@@ -59,6 +63,11 @@
               </div>
             </div>
           </div>
+          <!--
+          <div >
+            <img src="{{ url_for('static', filename='images/good_wordcloud.png') }}"></img>
+          </div>
+          -->
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12">
           <div class="x_panel">
@@ -84,13 +93,58 @@
                 <br />
               </div>
               <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
-                <h3 classs="prod_title"> CO2 Emmission </h3>
+                <h3 classs="prod_title"> CO2 Emission </h3>
                 <p>Material: {{ pp_material }}</p>
                 <p>{{ pp_emission }} * 23.78 = {{ pp_emission_m }}</p>
               </div>
             </div>
           </div>
+          <div >
+
+          </div>
         </div>
+        <div class="container">
+  <h2>Fact check</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:50%">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="{{ url_for('static', filename='images/feature_importances.png') }}" alt="Los Angeles" style="width:85%;">
+      </div>
+
+      <div class="item">
+        <img src="{{ url_for('static', filename='images/hazardous_materials.png') }}" alt="Chicago" style="width:85%;">
+      </div>
+
+      <div class="item">
+        <img src="{{ url_for('static', filename='images/bad_wordcloud.png') }}" alt="New york" style="width:85%;">
+      </div>
+
+      <div class="item">
+        <img src="{{ url_for('static', filename='images/good_wordcloud.png') }}" alt="New york" style="width:85%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
       </div>
     </div>
    </div>
