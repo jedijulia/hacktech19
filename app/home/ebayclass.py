@@ -51,10 +51,6 @@ class mainBay():
             api_request = {
                 #'keywords': u'niño',
                 'keywords': str(search),
-                'itemFilter': [
-                    {'name': 'Condition',
-                     'value': 'New'}
-                ],
                 'affiliate': {'trackingId': 1},
                 'sortOrder': 'CountryDescending',
             }
