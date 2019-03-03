@@ -37,6 +37,7 @@ price = "OOPS";
 material = "OOPS";
 emission = "OOPS";
 image = "OOPS";
+bay = "OOPS"
 
 @blueprint.route('/sr',methods=['GET','POST'])
 @login_required
@@ -46,6 +47,7 @@ def sr():
   global material
   global emission
   global image
+  global bay
 
   if request.method == 'POST':
     title = request.form['title']
@@ -53,6 +55,7 @@ def sr():
     material = request.form['material']
     emission = request.form['emission']
     image = request.form['image']
+    bay = request.form['bay']
     return jsonify(redirect="/home/ei")
 
 @blueprint.route('/ei',methods=['GET','POST'])
@@ -64,6 +67,7 @@ def ei():
   global emission
   global image
   global unsorted_results
+  global bay
   pg_emission_mult = float(emission) * float(23.78)
   pp_emission_mult = float(unsorted_results['emission']) * float(23.78)
   if request.method == 'GET':
@@ -79,4 +83,5 @@ def ei():
                            pp_material=unsorted_results['material'],
                            pp_emission=unsorted_results['emission'],
                            pp_emission_m=pp_emission_mult,
-                           pp_price=unsorted_results['price'])
+                           pp_price=unsorted_results['price'],
+                           pp_bay=bay)

@@ -104,6 +104,7 @@ class mainBay():
             temp['title'] = item['title']
             temp['price'] = item['sellingStatus']['currentPrice']['value']
             temp['material'] = material
+            temp['bay'] = item['viewItemURL']
 
             if 'Nylon' in material:
                 temp['emission'] = 7.9
@@ -127,7 +128,9 @@ class mainBay():
                 temp['emission'] = 0
 
 
-            appended_list.append(temp)
-        appended_list = list({v['itemId']:v for v in appended_list}.values())
-        return list(appended_list)
 
+            appended_list.append(temp)
+
+        appended_list = list({v['itemId']:v for v in appended_list}.values())
+
+        return list(appended_list)

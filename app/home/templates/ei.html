@@ -55,6 +55,7 @@
                 <p>Material: {{ pg_material }}</p>
 
                 <p>{{ pg_emission }} * 23.78 = {{ pg_emission_m }}</p>
+                <a href="{{pp_bay}}" class="btn btn-success">BUY NOW</a>
               </div>
             </div>
           </div>
@@ -121,4 +122,3 @@
   <script src="{{ url_for('static', filename='vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
   <script src="{{ url_for('static', filename='vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
 {% endblock javascripts %}
-
