@@ -1,16 +1,22 @@
 
 html , body{
-	
+
  height:100%;
- 
+ margin: 0;
+ padding: 0;
+
 }
- 
+
+.body, .main_container {
+    height: 100% !important;
+}
+
 .full-width {
-	
+
  width:100%;
- 
+
  }
- 
+
 .full-height{
  height:100%;
  }
@@ -168,6 +174,11 @@ html , body{
     padding: 10px 20px;
     margin-left: 70px;
     z-index: 2
+}
+.nav-sm .container.body .right_col_mod {
+    padding: 10px 20px;
+    margin-left: 0px;
+    z-index: 2;
 }
 .nav-sm .navbar.nav_title {
     width: 70px
@@ -353,9 +364,17 @@ html , body{
 body .container.body .right_col {
     background: #F7F7F7
 }
+body .container.body .right_col_mod {
+    background: #F7F7F7;
+    height: 100%;
+}
 .nav-md .container.body .right_col {
     padding: 10px 20px 0;
     margin-left: 230px
+}
+.nav-md .container.body .right_col_mod {
+    padding: 10px 20px 0;
+    margin-left: 0px;
 }
 .nav_title {
     width: 230px;
@@ -366,6 +385,7 @@ body .container.body .right_col {
 }
 @media (max-width: 991px) {
     .nav-md .container.body .right_col,
+    .nav-md .container.body .right_col_mod,
     .nav-md .container.body .top_nav {
         width: 100%;
         margin: 0
@@ -378,6 +398,9 @@ body .container.body .right_col {
         padding-right: 0
     }
     .right_col {
+        padding: 10px !important
+    }
+    .right_col_mod {
         padding: 10px !important
     }
 }
@@ -3352,8 +3375,13 @@ ul.project_files li a i {
     font-size: 20px;
     font-weight: 400
 }
+.product-image {
+    /*height: 30rem;*/
+    width: 100%;
+}
 .product-image img {
-    width: 90%
+    height: 90%;
+    width: 90%;
 }
 .prod_color li {
     margin: 0 10px
@@ -3376,12 +3404,21 @@ ul.project_files li a i {
     height: 100px;
     float: left;
     margin: 10px;
-    border: 1px solid #e5e5e5
+    border: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
+
+.product_gallery a :hover {
+    cursor: pointer;
+}
+
 .product_gallery a img {
     width: 100%;
-    margin-top: 15px
 }
+
 .product_price {
     margin: 20px 0;
     padding: 5px 10px;
@@ -4240,7 +4277,7 @@ ul.notifications {
 table thead .checkbox { margin-top:-7px;margin-top:-21px; }
 table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 */
-			
+
 .daterangepicker.xdisplay { width:228px; }
 
 .dataTables_wrapper > .row{
