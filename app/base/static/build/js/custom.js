@@ -9,6 +9,22 @@ $('.product_gallery img').on('click', e => {
    .src = e.target.src;
 });
 
+$('.list-item').on('click', e => {
+  $.post({
+    url: '/home/sr',
+    data: {
+      hello: "world"
+    },
+    success: function(data, status) {
+      console.log('success')
+      console.log(data);
+      console.log(data.redirect);
+      window.location.href = String(data.redirect);
+    }
+  });
+})
+
+
 /**
  * Resize function without multiple trigger
  *
