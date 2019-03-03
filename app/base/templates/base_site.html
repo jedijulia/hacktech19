@@ -40,15 +40,15 @@
         <div class="main_container">
 
           {% block sidebar %}
-            <div class="col-md-3 left_col {% block sidebar_class %} {% endblock sidebar_class %}">
+            {# <div class="col-md-3 left_col {% block sidebar_class %} {% endblock sidebar_class %}">
               {% include "site_template/sidebar.html" %}
-            </div>
+            </div> #}
           {% endblock sidebar %}
 
           {% block top_navigation %}
-            <div class="top_nav">
+            {# <div class="top_nav">
               {% include "site_template/top_navigation.html" %}
-            </div>
+            </div> #}
           {% endblock top_navigation %}
 
           {% block content %}
@@ -56,9 +56,9 @@
           {% endblock content %}
 
           {% block footer %}
-            <footer>
+            {# <footer>
               {% include "site_template/footer.html" %}
-            </footer>
+            </footer> #}
           {% endblock footer %}
         </div>
       </div>

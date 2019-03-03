@@ -12,7 +12,6 @@ Material,Building,Insulation,Glasswool,kg,1.35
 Material,Building,Insulation,Insulation,kg,1.86
 Material,Building,Insulation,Mineral wool,kg,1.20
 Material,Building,Insulation,Wool,kg,0.15
-Material,Building,Insulation,Wool r.,kg,3.17
 Material,Construction material,Cement,Cement,kg,0.89
 Material,Construction material,Concrete,Concrete,kg,0.15
 Material,Construction material,Concrete,Reinforced concrete,kg,0.36
@@ -26,25 +25,14 @@ Material,Iron metal,Iron,Cast iron,kg,1.51
 Material,Iron metal,Iron,Iron,kg,1.91
 Material,Iron metal,Steel,Reinforced steel,kg,1.49
 Material,Iron metal,Steel,Stainless steel,kg,6.15
-Material,Iron metal,Steel,Steel,kg,1.77
-Material,Iron metal,Steel,Steel r.,kg,0.88
-Material,Iron metal,Steel,Steel v.,kg,3.29
-Material,Non Iron metal,Aluminium,Aluminium,kg,8.14
-Material,Non Iron metal,Aluminium,Aluminium r.,kg,2.01
-Material,Non Iron metal,Aluminium,Aluminium v.,kg,11.89
-Material,Non Iron metal,Copper,Copper,kg,2.77
-Material,Non Iron metal,Copper,Copper v.,kg,3.83
-Material,Non Iron metal,Glass,Glass,kg,0.85
-Material,Non Iron metal,Glass,Glass r.,kg,0.73
-Material,Non Iron metal,Glass,Glass v.,kg,4.40
-Material,Non Iron metal,Lead,Lead,kg,1.64
-Material,Non Iron metal,Lead,Lead r.,kg,0.53
-Material,Non Iron metal,Lead,Lead v.,kg,2.61
+Material,Iron metal,Steel,Steel,kg,3.29
+Material,Non Iron metal,Aluminum,Aluminum,kg,11.89
+Material,Non Iron metal,Copper,Copper,kg,3.83
+Material,Non Iron metal,Glass,Glass,kg,4.40
+Material,Non Iron metal,Lead,Lead,kg,2.61
 Material,Non Iron metal,Nickel,Nickel,kg,11.53
 Material,Non Iron metal,Other,Other metal,kg,4.40
-Material,Non Iron metal,Zinc,Zinc,kg,3.41
-Material,Non Iron metal,Zinc,Zinc r.,kg,0.48
-Material,Non Iron metal,Zinc,Zinc v.,kg,3.86
+Material,Non Iron metal,Zinc,Zinc,kg,3.86
 Material,Other,Battery&pile,Battery Alkaline,kg,0.07
 Material,Other,Battery&pile,Battery NiCd,kg,0.21
 Material,Other,Battery&pile,Battery NiMH,kg,57.40
@@ -61,23 +49,19 @@ Material,Plastic,Thermodurcible,Polyurethane flex.,kg,4.99
 Material,Plastic,Thermodurcible,Polyurethane rig.,kg,3.61
 Material,Plastic,Thermoplastic,ABS,kg,3.46
 Material,Plastic,Thermoplastic,EVAC,kg,2.11
-Material,Plastic,Thermoplastic,HDPE r.,kg,1.10
-Material,Plastic,Thermoplastic,HDPE v.,kg,1.90
-Material,Plastic,Thermoplastic,LDPE r.,kg,1.01
-Material,Plastic,Thermoplastic,LDPE v.,kg,2.06
+Material,Plastic,Thermoplastic,HDPE,kg,1.90
+Material,Plastic,Thermoplastic,LDPE,kg,2.06
 Material,Plastic,Thermoplastic,Nylon,kg,7.90
 Material,Plastic,Thermoplastic,PE,kg,2.40
-Material,Plastic,Thermoplastic,PET r.,kg,1.76
-Material,Plastic,Thermoplastic,PET v.,kg,5.44
+Material,Plastic,Thermoplastic,PET,kg,5.44
 Material,Plastic,Thermoplastic,Polystyrene,kg,3.07
 Material,Plastic,Thermoplastic,PP gra.,kg,1.95
-Material,Plastic,Thermoplastic,PVC r.,kg,0.48
-Material,Plastic,Thermoplastic,PVC v.,kg,2.22
+Material,Plastic,Thermoplastic,PVC,kg,2.22
 Material,Plastic,Thermoplastic,SAN,kg,3.46
-Reagent,Chemical,Al(OH)3,"Aluminium hydroxide, Al(OH)3",kg,0.66
-Reagent,Chemical,Al2(SO4)3,"Aluminium sulphate, powder, Al2(SO4)3",kg,0.50
-Reagent,Chemical,Al2O3,"Aluminium oxide, Al2O3",kg,1.23
-Reagent,Chemical,AlCl3,"Aluminium chloride, AlCl3",kg,0.60
+Reagent,Chemical,Al(OH)3,"Aluminum hydroxide, Al(OH)3",kg,0.66
+Reagent,Chemical,Al2(SO4)3,"Aluminum sulphate, powder, Al2(SO4)3",kg,0.50
+Reagent,Chemical,Al2O3,"Aluminum oxide, Al2O3",kg,1.23
+Reagent,Chemical,AlCl3,"Aluminum chloride, AlCl3",kg,0.60
 Reagent,Chemical,Alcool,"Alcohol",kg,1.47
 Reagent,Chemical,C2Cl4,"Tetrachloroethylene, C2Cl4",kg,3.90
 Reagent,Chemical,C2H3ClO2,"Chloroacetic acid, C2H3ClO2",kg,2.20
@@ -181,6 +165,5 @@ Reagent,Other,Fertilizer,Phosphorous,kg,2.70
 Reagent,Other,Other,Membrane cleaning,kg,3.99
 Reagent,Other,Polymer,Polymer,kg,2.20
 Reagent,Other,Resin,Resin prod. & activ.,kg,3.67
-Reagent,Other,Resin,Resin regener.,kg,0.53
 Reagent,Other,Sand,Microsand,kg,0.11
 Reagent,Other,TSP,STP,kg,5.81
